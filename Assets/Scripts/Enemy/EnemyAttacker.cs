@@ -25,6 +25,16 @@ namespace Enemy
             _enemyBiteSoundTurntable = GetComponent<EnemyBiteSoundTurntable>();
         }
 
+        private void OnEnable()
+        {
+            PlayerHealth.Died += OnDied;
+        }
+
+        private void OnDisable()
+        {
+            PlayerHealth.Died -= OnDied;
+        }
+
         private void Start()
         {
             if (PlayerHealth == null)
@@ -69,6 +79,11 @@ namespace Enemy
         {
             if (value > 0)
                 _damage += value;
+        }
+        
+        private void OnDied()
+        {
+            _enemyBiteSoundTurntable.StopSounds();
         }
     }
 }
