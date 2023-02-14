@@ -28,12 +28,6 @@ namespace Player
             RecordChanged?.Invoke(_record.HighestRecord);
         }
 
-        /*private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.T))
-                AddExperience(ExperienceToNextLevel);
-        }*/
-
         public void AddExperience(int reward)
         {
             Experience += reward;

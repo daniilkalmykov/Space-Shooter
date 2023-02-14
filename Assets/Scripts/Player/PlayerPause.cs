@@ -30,7 +30,6 @@ namespace Player
         {
             IsPaused = pauseState;
 
-            //_audioListener.enabled = !pauseState;
             Time.timeScale = pauseState ? 0 : 1;
             _pausePanel.gameObject.SetActive(pauseState);
             _firstPersonCamera.enabled = !pauseState;

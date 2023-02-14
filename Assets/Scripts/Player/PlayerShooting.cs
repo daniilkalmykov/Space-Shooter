@@ -9,8 +9,6 @@ namespace Player
     [RequireComponent(typeof(Animator))]
     public class PlayerShooting : MonoBehaviour
     {
-        public const int RiffleNumber = 1;
-        
         [SerializeField] private TakeMagazinesText _takeMagazines;
         [SerializeField] private List<Weapon.Weapon> _weapons;
 
@@ -28,6 +26,7 @@ namespace Player
 
         public Weapon.Weapon CurrentWeapon { get; private set; }
         public int PistolNumber { get; private set; } = 0;
+        public int RiffleNumber { get; private set; } = 1;
         public int CurrentWeaponNumber { get; private set; }
         public bool IsMagazinesDropActivating { get; private set; }
 
@@ -39,19 +38,19 @@ namespace Player
         private void OnEnable()
         {
             foreach (var weapon in _weapons)
+            {
                 weapon.Reloaded += OnReloaded;
-            
-            foreach (var weapon in _weapons)
                 weapon.Shot += OnShot;
+            }
         }
 
         private void OnDisable()
         {
             foreach (var weapon in _weapons)
+            {
                 weapon.Reloaded -= OnReloaded;
-            
-            foreach (var weapon in _weapons)
                 weapon.Shot -= OnShot;
+            }
         }
 
         private void Start()

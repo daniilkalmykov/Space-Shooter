@@ -22,7 +22,7 @@ namespace Sounds
 
         public void StopSounds()
         {
-            _audioSource.Stop();
+            _audioSource.mute = true;
         }
     }
 }

@@ -65,9 +65,9 @@ namespace Player
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
-                _playerShooting.ChangeWeapon(1);
+                _playerShooting.ChangeWeapon(_playerShooting.RiffleNumber);
             else if (Input.GetKeyDown(KeyCode.Alpha2))
-                _playerShooting.ChangeWeapon(0);
+                _playerShooting.ChangeWeapon(_playerShooting.PistolNumber);
 
             if (_playerShooting.IsMagazinesDropActivating && Input.GetKeyDown(KeyCode.F))
                 _playerShooting.TakeDrop();

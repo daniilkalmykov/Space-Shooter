@@ -25,11 +25,14 @@ namespace Enemy
             _enemyBiteSoundTurntable = GetComponent<EnemyBiteSoundTurntable>();
         }
 
-        private void Update()
+        private void Start()
         {
             if (PlayerHealth == null)
                 _enemyBiteSoundTurntable.StopSounds();
-            
+        }
+
+        private void Update()
+        {
             if (_isWaiting)
             {
                 _delay += Time.deltaTime;
